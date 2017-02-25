@@ -1,3 +1,27 @@
+html {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
 body {
   width: 960px;
+  background: linear-gradient(to bottom right, #f4f3e6, #54b8f2);
+}
+
+h1, h2 {
+  text-align: center;
+  font-family: Helvetica Neue;
+  font-size: 40px;
+  font-weight: bold;
+  letter-spacing: -1px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+p {
+  width: 75%;
+  margin: auto;
 }
