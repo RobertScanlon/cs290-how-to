@@ -1,32 +1,37 @@
 html, body {
   min-height: 100%;
 }
-
 body {
   background: linear-gradient(to bottom right, lightgrey, white, lightgrey)
               fixed;
 }
-
-h1, h2 {
+h1, h2, h3 {
   width: 90%;
-  margin: 0 auto;
+  margin: 10px auto;
   text-align: center;
   font-family: Helvetica Neue;
   font-size: 40px;
   font-weight: bold;
   letter-spacing: -1px;
 }
-
 h2 {
-  font-size: 20px;
-  margin-bottom: 25px;
+  font-size: 25px;
 }
-
+h3 {
+  font-size: 18px;
+}
 p {
-  width: 75%;
+  width: 66.6667%;
   margin: auto;
+  line-height: 200%;
+  text-indent: 50px;
+  font-family: "Times New Roman", serif;
+  font-size: 18px;
 }
-
+#hpTitle {
+  margin-top: 25px;
+  margin-bottom: 50px;
+}
 #leftBorder {
   position: absolute;
   width: 20px;
@@ -43,4 +48,13 @@ p {
   right: 0;
   top: 0;
   text-align: center;
+}
+
+.bodyDiv {
+  margin: 25px;
+}
+
+.cardSeparator {
+  font-size: 75px;
+  color: red;
 }
