@@ -48,6 +48,7 @@ function showResult(res) {
   var p = document.getElementById("ex1Div");
   var txt = document.createElement("p");
   var heading = document.createElement("h3");
+  heading.style.margin = "0";
   heading.textContent = "What The API Returns";
   txt.appendChild(heading);
   var lst = document.createElement("ul");
