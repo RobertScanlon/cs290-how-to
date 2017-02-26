@@ -4,21 +4,23 @@ document.addEventListener("DOMContentLoaded", function() {printBorder("rightBord
 function printBorder(id) {
   var leftBorder = document.getElementById(id);
   for (var i = 0; i < 15; i++) {
-    var suite = document.createElement("span");
-    suite.textContent = '\u2660';
-    leftBorder.appendChild(suite);
+    var spade = document.createElement("span");
+    spade.textContent = '\u2660';
+    leftBorder.appendChild(spade);
     leftBorder.appendChild(document.createElement("br"));
-    var suite = document.createElement("span");
-    suite.textContent = '\u2665';
-    leftBorder.appendChild(suite);
+    var heart = document.createElement("span");
+    heart.textContent = '\u2665';
+    heart.style.color = "red";
+    leftBorder.appendChild(heart);
     leftBorder.appendChild(document.createElement("br"));
-    var suite = document.createElement("span");
-    suite.textContent = '\u2663';
-    leftBorder.appendChild(suite);
+    var club = document.createElement("span");
+    club.textContent = '\u2663';
+    leftBorder.appendChild(club);
     leftBorder.appendChild(document.createElement("br"));
-    var suite = document.createElement("span");
-    suite.textContent = '\u2666';
-    leftBorder.appendChild(suite);
+    var diam = document.createElement("span");
+    diam.textContent = '\u2666';
+    diam.style.color = "red";
+    leftBorder.appendChild(diam);
     leftBorder.appendChild(document.createElement("br"));
   }
 }
