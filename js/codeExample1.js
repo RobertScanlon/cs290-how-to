@@ -1,13 +1,14 @@
-document.addEventListener("DOMContentLoaded", bindGetFreshDeck);
+var APIurl = "http://127.0.0.1:8000/api/deck/";
 
+document.addEventListener("DOMContentLoaded", bindGetFreshDeck);
 var deckId;
 
 function bindGetFreshDeck() {
   document.getElementById("ex1Button").addEventListener(
     "click", function(event) {
       var request = new XMLHttpRequest();
-      var APIurl = "https://deckofcardsapi.com/api/deck/new/";
-      request.open("GET", APIurl, true);
+      var url = APIurl + "new/";
+      request.open("GET", url, true);
       request.send(null);
       request.addEventListener("load", function() {
         if (request.status >= 200 && request.status < 400) {
@@ -27,15 +28,15 @@ function bindDraw() {
   document.getElementById("draw1").addEventListener(
     "click", function(event) {
       var request = new XMLHttpRequest();
-      var APIurl = "https://deckofcardsapi.com/api/deck/";
-      APIurl += deckId;
-      APIurl += "/draw/?count=1";
-      request.open("GET", APIurl, true);
+      var url = APIurl;
+      url += deckId;
+      url += "/draw/?count=1";
+      request.open("GET", url, true);
       request.send(null);
       request.addEventListener("load", function() {
         if (request.status >= 200 && request.status < 400) {
           var card = JSON.parse(request.responseText);
-          printCard(card, APIurl);
+          printCard(card, url);
         } else {
           console.log("error");
         }

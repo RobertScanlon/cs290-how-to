@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {printBorder("leftBorder");});
 document.addEventListener("DOMContentLoaded", function() {printBorder("rightBorder");});
 
-var length = 25;
+var length = 50;
 
 function printBorder(id) {
   var leftBorder = document.getElementById(id);
