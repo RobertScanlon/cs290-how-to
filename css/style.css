@@ -4,10 +4,11 @@ html, body {
 
 body {
   background: linear-gradient(to bottom right, #f4f3e6, #54b8f2) fixed;
-  width: 960px;
 }
 
 h1, h2 {
+  width: 90%;
+  margin: 0 auto;
   text-align: center;
   font-family: Helvetica Neue;
   font-size: 40px;
@@ -17,6 +18,7 @@ h1, h2 {
 
 h2 {
   font-size: 20px;
+  margin-bottom: 25px;
 }
 
 p {
@@ -30,6 +32,7 @@ p {
   padding: 5px;
   left: 0;
   top: 0;
+  text-align: center;
 }
 
 #rightBorder {
@@ -38,4 +41,5 @@ p {
   padding: 5px;
   right: 0;
   top: 0;
+  text-align: center;
 }
