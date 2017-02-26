@@ -126,8 +126,19 @@ function bindGetFreshDeck() {
       After running the code above you should see a list of four items and
       their associated values. This data was contained in our example in the
       variable 'freshDeck', which was created by parsing the JSON encoded
-      string returned by the API. 
+      string returned by the API. This technique allows us to easily access
+      to different parts of the response using simple object notation.
+      For example, to access the 'remaining' property we simple write
+      <code>freshDeck.remaining</code>. To our luck, the creator of the API
+      uses simple self-explainatory names for these properties. 'Success' tells
+      us if what is returned, is what we requested, 'deck_id' is the new deck's
+      unique identifier, and I will spare the tediousness of explaining what
+      'shuffled' and 'remaining' mean...
     </p>
+  </div>
+  <div class=bodyDiv>
+    <h1 class="cardSeparator">&#x1f0a1;</h1>
+    <h2>Drawing From a Deck</h2>
   </div>
 </body>
 </html>
