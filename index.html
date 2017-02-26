@@ -136,9 +136,34 @@ function bindGetFreshDeck() {
       'shuffled' and 'remaining' mean...
     </p>
   </div>
-  <div class=bodyDiv>
+  <div class=bodyDiv id="ex2Div">
     <h1 class="cardSeparator">&#x1f0a1;</h1>
     <h2>Drawing From a Deck</h2>
+    <p>
+      Now creating a new deck of cards was pretty exciting, but also useless if
+      thats all we can do. In this section we will learn how to draw cards from
+      our deck. Our JavaScript fuction for drawing a card will almost exactly
+      the same as our function to create a new deck. The one notable exception
+      is that we must alter the url we send to reflect our request.
+    </p>
+    <p>
+      In our first exmaple we used the url
+      <code>https://deckofcardsapi.com/api/deck/new/</code>. To draw a card
+      we will use the same base url
+      <code>https://deckofcardsapi.com/api/deck/</code> but will append three
+      elements to its end. The first is the 'deck_id' of the deck we wish to
+      draw from. This is followed by the string 'draw' and the 'count=n'
+      parameter where n is some integer representing how many cards we wish to
+      draw. In this example we will be drawing 1 card from the deck we created
+      in the previous example.
+    </p>
+    <p>
+      <div class="inputButton">
+        <input type="submit" value="Draw a Card" id="draw1" />
+      </div>
+    </p>
+  </div>
+  <div class=bodyDivAfterEx>
   </div>
 </body>
 </html>

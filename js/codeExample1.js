@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", bindGetFreshDeck);
 
+var deckId;
+
 function bindGetFreshDeck() {
   document.getElementById("ex1Button").addEventListener(
     "click", function(event) {
@@ -11,6 +13,29 @@ function bindGetFreshDeck() {
         if (request.status >= 200 && request.status < 400) {
           var freshDeck = JSON.parse(request.responseText);
           showResult(freshDeck);
+          deckId = freshDeck.deck_id;
+          bindDraw();
+        } else {
+          console.log("error");
+        }
+      });
+    event.preventDefault();
+  });
+}
+
+function bindDraw() {
+  document.getElementById("draw1").addEventListener(
+    "click", function(event) {
+      var request = new XMLHttpRequest();
+      var APIurl = "https://deckofcardsapi.com/api/deck/";
+      APIurl += deckId;
+      APIurl += "/draw/?count=1";
+      request.open("GET", APIurl, true);
+      request.send(null);
+      request.addEventListener("load", function() {
+        if (request.status >= 200 && request.status < 400) {
+          var card = JSON.parse(request.responseText);
+          printCard(card);
         } else {
           console.log("error");
         }
@@ -40,4 +65,18 @@ function showResult(res) {
   lst.appendChild(rem);
   txt.appendChild(lst)
   p.appendChild(txt);
+}
+
+function printCard(res) {
+  var p = document.getElementById("ex2Div");
+  if (document.getElementById("imgDiv")) {
+    p.removeChild(document.getElementById("imgDiv"));
+  }
+  var imgDiv = document.createElement("div");
+  imgDiv.id = "imgDiv";
+  imgDiv.style.textAlign = "center";
+  var cardImage = document.createElement("img");
+  cardImage.src = res.cards[0].image;
+  imgDiv.appendChild(cardImage);
+  p.appendChild(imgDiv);
 }
