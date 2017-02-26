@@ -1,12 +1,10 @@
-html {
-  margin: 0;
-  padding: 0;
+html, body {
   min-height: 100%;
 }
 
 body {
-  width: 960px;
   background: linear-gradient(to bottom right, #f4f3e6, #54b8f2);
+  width: 960px;
 }
 
 h1, h2 {
@@ -26,10 +24,18 @@ p {
   margin: auto;
 }
 
-#pageFooter {
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-  text-align: center;
-  font-size: 25px;
+#leftBorder {
+  position: absolute;
+  width: 20px;
+  padding: 5px;
+  left: 0;
+  top: 0;
+}
+
+#rightBorder {
+  position: absolute;
+  width: 20px;
+  padding: 5px;
+  right: 0;
+  top: 0;
 }
