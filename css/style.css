@@ -38,6 +38,7 @@ input {
 }
 code {
   color: darkblue;
+  font-size: 18px;
 }
 #hpTitle {
   margin-top: 25px;

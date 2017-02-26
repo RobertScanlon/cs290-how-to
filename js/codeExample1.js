@@ -35,7 +35,7 @@ function bindDraw() {
       request.addEventListener("load", function() {
         if (request.status >= 200 && request.status < 400) {
           var card = JSON.parse(request.responseText);
-          printCard(card);
+          printCard(card, APIurl);
         } else {
           console.log("error");
         }
@@ -68,10 +68,19 @@ function showResult(res) {
   p.appendChild(txt);
 }
 
-function printCard(res) {
+function printCard(res, add) {
   var p = document.getElementById("ex2Div");
   if (document.getElementById("imgDiv")) {
     p.removeChild(document.getElementById("imgDiv"));
+  }
+  if (!document.getElementById("urlDiv")) {
+    var urlDiv = document.createElement("div");
+    urlDiv.id = "urlDiv";
+    urlDiv.style.textAlign = "center";
+    var url = document.createElement("code");
+    url.textContent = add;
+    urlDiv.appendChild(url);
+    p.appendChild(urlDiv);
   }
   var imgDiv = document.createElement("div");
   imgDiv.id = "imgDiv";

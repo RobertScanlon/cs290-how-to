@@ -155,7 +155,15 @@ function bindGetFreshDeck() {
       draw from. This is followed by the string 'draw' and the 'count=n'
       parameter where n is some integer representing how many cards we wish to
       draw. In this example we will be drawing 1 card from the deck we created
-      in the previous example.
+      in the previous example. Note that you must run the first code example
+      before attemping to draw a card. Why? Because before running the first
+      example we do not have a 'deck' to draw from! After the first example is
+      run, the <code>deck_id</code> we receive is saved and used to construct
+      the url we need to make a draw request.
+    </p>
+    <p>
+      Click the button below to draw a card from the deck we created earlier
+      and see the url that was used to make the request.
     </p>
     <p>
       <div class="inputButton">
