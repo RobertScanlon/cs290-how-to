@@ -3,7 +3,7 @@ html, body {
 }
 
 body {
-  background: linear-gradient(to bottom right, #f4f3e6, #54b8f2);
+  background: linear-gradient(to bottom right, #f4f3e6, #54b8f2) fixed;
   width: 960px;
 }
 
