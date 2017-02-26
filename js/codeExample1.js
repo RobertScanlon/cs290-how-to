@@ -27,16 +27,16 @@ function showResult(res) {
   txt.appendChild(heading);
   var lst = document.createElement("ul");
   var succ = document.createElement("li");
-  succ.textContent = "success: " + res.success;
+  succ.textContent = "success = " + res.success;
   lst.appendChild(succ);
   var did = document.createElement("li");
-  did.textContent = "deck_id: " + res.deck_id;
+  did.textContent = "deck_id = " + res.deck_id;
   lst.appendChild(did);
   var sh = document.createElement("li");
-  sh.textContent = "shuffled: " + res.shuffled;
+  sh.textContent = "shuffled: = " + res.shuffled;
   lst.appendChild(sh);
   var rem = document.createElement("li");
-  rem.textContent = "remaining: " + res.remaining;
+  rem.textContent = "remaining: = " + res.remaining;
   lst.appendChild(rem);
   txt.appendChild(lst)
   p.appendChild(txt);

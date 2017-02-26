@@ -65,6 +65,12 @@ input {
 .bodyDiv {
   margin: 25px;
 }
+.bodyDivAfterEx {
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
 
 .cardSeparator {
   font-size: 75px;

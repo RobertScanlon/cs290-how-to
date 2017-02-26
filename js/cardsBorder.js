@@ -1,9 +1,11 @@
 document.addEventListener("DOMContentLoaded", function() {printBorder("leftBorder");});
 document.addEventListener("DOMContentLoaded", function() {printBorder("rightBorder");});
 
+var length = 25;
+
 function printBorder(id) {
   var leftBorder = document.getElementById(id);
-  for (var i = 0; i < 15; i++) {
+  for (var i = 0; i < length; i++) {
     var spade = document.createElement("span");
     spade.textContent = '\u2660';
     leftBorder.appendChild(spade);

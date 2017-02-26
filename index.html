@@ -99,7 +99,35 @@ function bindGetFreshDeck() {
                id="ex1Button" />
       </div>
     </p>
-
+  </div>
+  <div class="bodyDivAfterEx">
+    <p>
+      We will focus our attention on the callback function we nested in
+      our 'bindGetFreshDeck' function. Here we create a new 'request'
+      object and call its 'open' method passing it three parameters.
+      These parameters will be the primary way by which we interact with
+      the API. For all examples in this tutorial, the firt parameter 'GET'
+      will stay the same. The next paramter, the url string, will be the
+      most important as
+      it will direct our request to the right location and hold information
+      we wish to pass to the API. Our last paramter will
+      always be true, as we want all of our requests to be asynchronous.
+    </p>
+    <p>
+      After calling 'open', we call 'send' passing 'null' as an argument, as
+      we are sending no additional data. We then add an event listener to our
+      request object which will wait until the API's responde is done loading.
+      If the repsonse status of our request is OK we can then proceed with
+      further processing, which in our case involves creating a JavaScript
+      object containing the contents the API's response to our request.
+    </p>
+    </p>
+    <p>
+      After running the code above you should see a list of four items and
+      their associated values. This data was contained in our example in the
+      variable 'freshDeck', which was created by parsing the JSON encoded
+      string returned by the API. 
+    </p>
   </div>
 </body>
 </html>
