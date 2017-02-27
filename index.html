@@ -86,6 +86,9 @@ function bindGetFreshDeck() {
       request.addEventListener("load", function() {
         if (request.status >= 200 && request.status < 400) {
           var freshDeck = JSON.parse(request.responseText);
+          ///////////////////
+          // Do Stuff Here //
+          ///////////////////
         } else {
           console.log("error");
         }
@@ -133,7 +136,9 @@ function bindGetFreshDeck() {
       uses simple self-explainatory names for these properties. 'Success' tells
       us if what is returned, is what we requested, 'deck_id' is the new deck's
       unique identifier, and I will spare the tediousness of explaining what
-      'shuffled' and 'remaining' mean...
+      'shuffled' and 'remaining' mean... In the section of code marked by the
+      <code>'Do Stuff Here'</code> comment, further processing may be performed
+      (such as displaying the object's content, as we did above).
     </p>
   </div>
   <div class=bodyDiv id="ex2Div">
@@ -151,9 +156,12 @@ function bindGetFreshDeck() {
       <code>https://deckofcardsapi.com/api/deck/new/</code>. To draw a card
       we will use the same base url
       <code>https://deckofcardsapi.com/api/deck/</code> but will append three
-      elements to its end. The first is the 'deck_id' of the deck we wish to
-      draw from. This is followed by the string 'draw' and the 'count=n'
-      parameter where n is some integer representing how many cards we wish to
+      elements to its end. The first is the <code>'deck_id'</code>
+      of the deck we wish to
+      draw from. This is followed by the string <code>'draw'</code> and the
+      <code>'count=n'</code>
+      parameter where <code>n</code> is some integer representing how many
+      cards we wish to
       draw. In this example we will be drawing 1 card from the deck we created
       in the previous example. Note that you must run the first code example
       before attemping to draw a card. Why? Because before running the first
@@ -163,7 +171,9 @@ function bindGetFreshDeck() {
     </p>
     <p>
       Click the button below to draw a card from the deck we created earlier
-      and see the url that was used to make the request.
+      and see the url that was used to make the request. Note that the
+      <code>'deck_id'</code> matches the <code>'deck_id'</code> of the
+      deck we created earlier.
     </p>
     <p>
       <div class="inputButton">
@@ -172,6 +182,40 @@ function bindGetFreshDeck() {
     </p>
   </div>
   <div class=bodyDivAfterEx>
+  </div>
+  <div class=bodyDiv>
+    <h3>To Shuffle Or Not To Shuffle</h3>
+    <p>
+      If you drew more than a few cards from our deck you may have realized
+      that the deck is ordered, with Aces being low and the suits ordered
+      Spades, Diamonds, Clubs, Hearts. While this is fine for our example
+      most 'real' uses would require a shuffled deck. Fortunately, the API
+      provides a method for shuffling an existing deck. Clicking the button
+      below will send off the following API request to shuffle the deck
+      created in the first example. (Note, if you drew all 52 cards from the
+      deck, shuffling will do nothing, refresh the page and start again.) Here,
+      <code>'deckId'</code> is a global variable or a parameter which holds
+      the <code>'deck_id'</code> of an existing deck.
+    </p>
+    <p class="pCode">
+      <pre class="jsCode">
+
+        var request = new XMLHttpRequest();
+        var url = "https://deckofcardsapi.com/api/deck/" + deckId + "/shuffle/";
+        request.open("GET", url, true);
+        request.send(null);
+      </pre>
+    </p>
+    <p>
+      <div class="inputButton">
+        <input type="submit" value="Shuffle Deck" id="shuffleButton" />
+      </div>
+    </p>
+    <p>
+      Now go back and draw some more cards using the <code>'Draw a Card'</code>
+      button. You should notice the cards remaining in the deck are now
+      shuffled.
+    </p>
   </div>
 </body>
 </html>

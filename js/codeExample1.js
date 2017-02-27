@@ -16,6 +16,7 @@ function bindGetFreshDeck() {
           showResult(freshDeck);
           deckId = freshDeck.deck_id;
           bindDraw();
+          bindShuffle();
         } else {
           console.log("error");
         }
@@ -37,6 +38,24 @@ function bindDraw() {
         if (request.status >= 200 && request.status < 400) {
           var card = JSON.parse(request.responseText);
           printCard(card, url);
+        } else {
+          console.log("error");
+        }
+      });
+    event.preventDefault();
+  });
+}
+
+function bindShuffle() {
+  document.getElementById("shuffleButton").addEventListener(
+    "click", function(event) {
+      var request = new XMLHttpRequest();
+      var url = APIurl + deckId + "/shuffle/";
+      request.open("GET", url, true);
+      request.send(null);
+      request.addEventListener("load", function() {
+        if (request.status >= 200 && request.status < 400) {
+          var shuffledDeck = JSON.parse(request.responseText);
         } else {
           console.log("error");
         }
@@ -87,7 +106,10 @@ function printCard(res, add) {
   imgDiv.id = "imgDiv";
   imgDiv.style.textAlign = "center";
   var cardImage = document.createElement("img");
-  cardImage.src = res.cards[0].image;
+  cardImage.alt = "No Card";
+  if (res.cards.length > 0) {
+    cardImage.src = res.cards[0].image;
+  }
   imgDiv.appendChild(cardImage);
   p.appendChild(imgDiv);
 }
