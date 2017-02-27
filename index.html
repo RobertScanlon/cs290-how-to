@@ -184,6 +184,24 @@ function bindGetFreshDeck() {
     </p>
   </div>
   <div class=bodyDivAfterEx>
+    <p>
+      We are able to display the card's image by accessing the
+      <code>'cards'</code> property of the object we created from our API
+      request <code>responseText</code>. This property contains an array of
+      the cards we drew from the deck. Because we only drew one card, we
+      access our card by with: <code>drawReqResponse.cards[0]</code>.
+      To get a url which links to a static image file we then access the
+      <code>'image'</code> of our <code>'card'</code> object. Finally, we
+      are able to display this image on our webpage by setting this image
+      url equal to the <code>'src'</code> property of an HTML
+      <code>'img'</code> element as seen below.
+    </p>
+    <p class="pCode">
+      <pre class="jsCode">
+
+        cardImage.src = drawReqResponse.cards[0].image;
+      </pre>
+    </p>
   </div>
   <div class=bodyDiv>
     <h3>To Shuffle Or Not To Shuffle</h3>
