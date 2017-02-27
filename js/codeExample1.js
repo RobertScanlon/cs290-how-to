@@ -112,4 +112,24 @@ function printCard(res, add) {
   }
   imgDiv.appendChild(cardImage);
   p.appendChild(imgDiv);
+  if (!document.getElementById("ex2Note")) {
+    var note = document.createElement("p");
+    note.id = "ex2Note";
+    note.innerHTML = "When we draw a card from a deck and parse the response " +
+    "we can access the drawn card(s) by accessing the <code>'cards'</code> " +
+    "property. <code>'cards'</code> is an array of <code>'card'</code>" +
+    " objects which have an <code>'image'</code> property containing a url " +
+    "which links to an image representing that card. " +
+    "We can see these pieces all come together below in the code " +
+    "used to produce the card image seen above. ";
+    p.appendChild(note);
+    var pC = document.createElement("p");
+    pC.className = "pCode";
+    var code = document.createElement("pre");
+    code.className = "jsCode";
+    code.textContent = "var cardImage = document.createElement(\"img\");" +
+    "\n" + "     cardImage.src = drawResponseObj.cards[0].image" + "\n";
+    pC.appendChild(code);
+    p.appendChild(pC);
+  }
 }
