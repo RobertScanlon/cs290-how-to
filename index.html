@@ -191,7 +191,7 @@ function bindGetFreshDeck() {
       the cards we drew from the deck. Because we only drew one card, we
       access our card by with: <code>drawReqResponse.cards[0]</code>.
       To get a url which links to a static image file we then access the
-      <code>'image'</code> of our <code>'card'</code> object. Finally, we
+      <code>'images'</code> of our <code>'card'</code> object. Finally, we
       are able to display this image on our webpage by setting this image
       url equal to the <code>'src'</code> property of an HTML
       <code>'img'</code> element as seen below.
@@ -237,5 +237,18 @@ function bindGetFreshDeck() {
       shuffled.
     </p>
   </div>
+
+  <div class=bodyDiv id="ex3Div">
+    <h1 class="cardSeparator">&#x1f0a1;</h1>
+    <h2>What Do I Do With My Cards?</h2>
+    <p>
+      We now know how to create a new deck of cards (either shuffled
+      or ordered), and how to draw cards from this deck. However, most card
+      games involve tracking and manipulating cards after they are drawn, most
+      often as a part of a players 'hand'. The Deck of Cards API provides a
+      useful tool to model this behavior, the 'pile'. 
+    </p>
+  </div>
+
 </body>
 </html>
