@@ -153,22 +153,22 @@ function searchSuit(suit) {
   var fid = "J"+ suit;
   var fe = document.getElementById(fid);
   if (fe.checked) {
-    retStr += (id + ",");
+    retStr += (fid + ",");
   }
   fid = "Q" + suit;
   var fe = document.getElementById(fid);
   if (fe.checked) {
-    retStr += (id + ",");
+    retStr += (fid + ",");
   }
   fid = "K" + suit;
   var fe = document.getElementById(fid);
   if (fe.checked) {
-    retStr += (id + ",");
+    retStr += (fid + ",");
   }
   fid = "A" + suit;
   var fe = document.getElementById(fid);
   if (fe.checked) {
-    retStr += (id + ",");
+    retStr += (fid + ",");
   }
   return retStr;
 }
