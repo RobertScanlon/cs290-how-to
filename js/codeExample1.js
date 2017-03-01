@@ -1,5 +1,5 @@
-// var APIurl = "http://127.0.0.1:8000/api/deck/";
-var APIurl = "https://deckofcardsapi.com/api/deck/";
+ var APIurl = "http://127.0.0.1:8000/api/deck/";
+//var APIurl = "https://deckofcardsapi.com/api/deck/";
 
 document.addEventListener("DOMContentLoaded", bindGetFreshDeck);
 var deckId;

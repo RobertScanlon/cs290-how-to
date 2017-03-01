@@ -8,8 +8,8 @@ var game = {
   guessStr : ""
 };
 
-// var server = "http://127.0.0.1:8000/api/deck";
-var server = "https://deckofcardsapi.com/api/deck/";
+ var server = "http://127.0.0.1:8000/api/deck";
+//var server = "https://deckofcardsapi.com/api/deck/";
 
 var noFaceString = "/?cards=2S,2D,2C,2H,3S,3D,3C,3H,4S,4D,4C,4H,5S,5D,5C,5H,6S,6D,6C,6H," +
                    "7S,7D,7C,7H,8S,8D,8C,8H,9S,9D,9C,9H,10S,10D,10C,10H,";
