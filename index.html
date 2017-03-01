@@ -142,6 +142,18 @@ function bindGetFreshDeck() {
       <code>'Do Stuff Here'</code> comment, further processing may be performed
       (such as displaying the object's content, as we did above).
     </p>
+    <p>
+      It should be noted that the API allows for the creation of a Deck
+      containing only certain cards. To do this we use the same code we
+      described above but append a <code>'cards'</code> parameter to our URL.
+      For example, to create a new deck with only the four Aces we would use
+      the following URL.
+      <br />
+      <code>'https://deckofcardsapi.com/api/deck/new/?cards=AS,AD,AC,AH'</code>
+      <br />
+      Cards are speficied using a two character code <code>'Rank' + 'Suit'</code>
+      . We will see this feature in use in our final example.
+    </p>
   </div>
   <div class=bodyDiv id="ex2Div">
     <h1 class="cardSeparator">&#x1f0a1;</h1>
@@ -247,6 +259,21 @@ function bindGetFreshDeck() {
       games involve tracking and manipulating cards after they are drawn, most
       often as a part of a players 'hand'. The Deck of Cards API provides a
       useful tool to model this behavior, the 'pile'.
+    </p>
+    <p>
+      After drawing a card from a deck, it may be placed in a 'pile' where it
+      can then, at a later time, be drawn again. An arbitrary number of piles
+      can be created each with a client determined name. This differs from a
+      deck whose <code>'deck_id'</code> is determined server side and cannot be
+      changed. But wait, this leads to a problem, how does the API know what
+      piles belongs to what user?  Surely there would be many piles named
+      <code>'player1'</code>, <code>'hand'</code>, etc.
+      The solution is that every API call that
+      manipulates a pile must also include a valid <code>'deck_id'</code>.
+      Just as in a real card game, a 'pile' cannot exist independent of a deck.
+    </p>
+    <p>
+      // stack?
     </p>
   </div>
   <div class=bodyDiv id="gameDiv">
