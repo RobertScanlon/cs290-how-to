@@ -10,7 +10,8 @@ html, body {
 }
 body {
   background: linear-gradient(to bottom right, lightgrey, white, lightgrey)
-              fixed;
+  position: fixed;
+  max-width: 960px;
 }
 h1, h2, h3 {
   width: 90%;
