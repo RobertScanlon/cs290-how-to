@@ -15,15 +15,10 @@ var game = {
 
 // var server = "http://127.0.0.1:8000/api/deck";
 var server = "https://deckofcardsapi.com/api/deck/";
-
 var noFaceString = "/?cards=2S,2D,2C,2H,3S,3D,3C,3H,4S,4D,4C,4H,5S,5D,5C,5H,6S,6D,6C,6H," +
                    "7S,7D,7C,7H,8S,8D,8C,8H,9S,9D,9C,9H,10S,10D,10C,10H";
-
 var noFaceDeckUrl = server + "/new/shuffle" + noFaceString;
-
 var faceDeckUrl = server + "/new/shuffle/?deck_count=1";
-
-
 
 document.addEventListener("DOMContentLoaded", bindUsrOpt);
 document.addEventListener("DOMContentLoaded", bindDraw);
@@ -42,7 +37,6 @@ function bindUsrOpt() {
       getDeck();
   });
 }
-
 
 function getDeck() {
   var res = new XMLHttpRequest();
@@ -89,12 +83,9 @@ function draw() {
   });
 }
 
-
 function loadImage(obj) {
   document.getElementById("cardImg").src = obj.cards[0].image;
 }
-
-
 
 function bindAdd() {
   document.getElementById("put").addEventListener("click", function(event) {
@@ -228,33 +219,3 @@ function tryGuess() {
     });
   }
 }
-// function createGuessOptions(g) {
-//   var fld = document.getElementById("cardInputField");
-//   if (g.face == false) {
-//     addOpt("Spades", fld);
-//     addOpt("Diamonds", fld);
-//     addOpt("Clubs", fld);
-//     addOpt("Hearts", fld);
-//   } else {
-//
-//   }
-// }
-//
-//
-// function addOpt(suite, par) {
-//   for (var i = 2; i < 11; i++) {
-//     var span = document.createElement("span");
-//     span.style.border = "1px solid black";
-//     var id = i + " " + suite;
-//     var opt = document.createElement("input");
-//     opt.type = "checkbox";
-//     opt.value = id;
-//     opt.id = id;
-//     var label = document.createElement("label");
-//     label.for = id;
-//     label.textContent = id;
-//     span.appendChild(opt);
-//     span.appendChild(label);
-//     par.appendChild(span);
-//   }
-// }

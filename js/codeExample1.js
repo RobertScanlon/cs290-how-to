@@ -138,7 +138,6 @@ function updateDrawResults(res) {
   "remaining = " + res.remaining;
 }
 
-
 function printCard(res, add) {
   var p = document.getElementById("ex2Div");
   if (document.getElementById("imgDiv")) {
