@@ -35,18 +35,18 @@ How-To Project
 
   <div class=bodyDiv>
     <h1 class="cardSeparator">&#x1f0a1;</h1>
-    <h2>Basic API useage</h2>
+    <h2>Basic API usage</h2>
     <p>
       The 'Deck of Cards' API provides web developers a simple tool for
       creating, displaying, and manipulating a virtual 'deck' of playing cards.
       This guide will provide instruction for use of all the API's features in
-      addition to examples of the API im use for some typical applications.
+      addition to examples of the API in use for some typical applications.
     </p>
     <h3>Notes On API Use In This Guide</h3>
     <p>
       Many public APIs require the use of an API 'key', a unique identifier
       belonging to a developer. Keys are often used to track and possible limit
-      useage of an API according to the agreement bewteen API creator and
+      usage of an API per the agreement between API creator and
       developer. No keys are required to use the 'Deck of Cards' API.
       Therefore, all code examples provided in this tutorial can be copied and
       used 'as is', there is no need to append an API key onto any of the
@@ -63,7 +63,7 @@ How-To Project
     <h1 class="cardSeparator">&#x1f0a1;</h1>
     <h2>Requesting A Deck</h2>
     <p>
-      For most applications, use of the API is a two step process. First,
+      For most applications, use of the API is a two-step process. First,
       a request is made for a 'deck' of cards. This deck may be a standard 52
       card deck of playing cards, a 'multi-deck' composed of an arbitrary
       number of standard decks, or a custom deck, with only certain cards
@@ -75,7 +75,7 @@ How-To Project
     </p>
     <h3>Example 1: A Fresh Pack of Cards</h3>
     <p class="pCode">
-      We now start our API turorial as if we have just bought a new pack of
+      We now start our API tutorial as if we have just bought a new pack of
       playing cards from the store. To simulate this activity on the Web,
       we must set up the following JavaScript function.
       <pre class="jsCode">
@@ -118,31 +118,31 @@ function bindGetFreshDeck() {
       our 'bindGetFreshDeck' function. Here we create a new 'request'
       object and call its 'open' method passing it three parameters.
       These parameters will be the primary way by which we interact with
-      the API. For all examples in this tutorial, the firt parameter 'GET'
-      will stay the same. The next paramter, the url string, will be the
+      the API. For all examples in this tutorial, the first parameter 'GET'
+      will stay the same. The next parameter, the url string, will be the
       most important as
       it will direct our request to the right location and hold information
-      we wish to pass to the API. Our last paramter will
-      always be true, as we want all of our requests to be asynchronous.
+      we wish to pass to the API. Our last parameter will
+      always be true, as we want all our requests to be asynchronous.
     </p>
     <p>
       After calling 'open', we call 'send' passing 'null' as an argument, as
       we are sending no additional data. We then add an event listener to our
-      request object which will wait until the API's responde is done loading.
-      If the repsonse status of our request is OK we can then proceed with
+      request object which will wait until the API's response is done loading.
+      If the response status of our request is OK we can then proceed with
       further processing, which in our case involves creating a JavaScript
       object containing the contents the API's response to our request.
     </p>
     </p>
     <p>
-      After running the code above you should see a list of four items and
+      After running the code above, you should see a list of four items and
       their associated values. This data was contained in our example in the
       variable 'freshDeck', which was created by parsing the JSON encoded
       string returned by the API. This technique allows us to easily access
       to different parts of the response using simple object notation.
       For example, to access the 'remaining' property we simple write
       <code>freshDeck.remaining</code>. To our luck, the creator of the API
-      uses simple self-explainatory names for these properties. 'Success' tells
+      uses simple self-explanatory names for these properties. 'Success' tells
       us if what is returned, is what we requested, 'deck_id' is the new deck's
       unique identifier, and I will spare the tediousness of explaining what
       'shuffled' and 'remaining' mean... In the section of code marked by the
@@ -158,22 +158,22 @@ function bindGetFreshDeck() {
       <br />
       <code>'https://deckofcardsapi.com/api/deck/new/?cards=AS,AD,AC,AH'</code>
       <br />
-      Cards are speficied using a two character code <code>'Rank' + 'Suit'</code>
-      . We will see this feature in use in our final example.
+      Cards are specified using a two-character code <code>'Rank' + 'Suit'</code>.
+      We will see this feature in use in our final example.
     </p>
   </div>
   <div class=bodyDiv id="ex2Div">
     <h1 class="cardSeparator">&#x1f0a1;</h1>
     <h2>Drawing From a Deck</h2>
     <p>
-      Now creating a new deck of cards was pretty exciting, but also useless if
-      thats all we can do. In this section we will learn how to draw cards from
-      our deck. Our JavaScript fuction for drawing a card will almost exactly
+      Now creating a new deck of cards was exciting, but also useless if
+      that's all we can do. In this section, we will learn how to draw cards from
+      our deck. Our JavaScript function for drawing a card will almost exactly
       the same as our function to create a new deck. The one notable exception
       is that we must alter the url we send to reflect our request.
     </p>
     <p>
-      In our first exmaple we used the url
+      In our first example we used the url
       <code>https://deckofcardsapi.com/api/deck/new/</code>. To draw a card
       we will use the same base url
       <code>https://deckofcardsapi.com/api/deck/</code> but will append three
@@ -185,7 +185,7 @@ function bindGetFreshDeck() {
       cards we wish to
       draw. In this example we will be drawing 1 card from the deck we created
       in the previous example. Note that you must run the first code example
-      before attemping to draw a card. Why? Because before running the first
+      before attempting to draw a card. Why? Because before running the first
       example we do not have a 'deck' to draw from! After the first example is
       run, the <code>deck_id</code> we receive is saved and used to construct
       the url we need to make a draw request.
@@ -265,7 +265,7 @@ function bindGetFreshDeck() {
       We now know how to create a new deck of cards (either shuffled
       or ordered), and how to draw cards from this deck. However, most card
       games involve tracking and manipulating cards after they are drawn, most
-      often as a part of a players 'hand'. The Deck of Cards API provides a
+      often as a part of a player's 'hand'. The Deck of Cards API provides a
       useful tool to model this behavior, the 'pile'.
     </p>
     <p>
