@@ -1,0 +1,57 @@
+body {
+  background: linear-gradient(to bottom right, lightgrey, white, lightgrey)
+              fixed;
+}
+h1 {
+  width: 90%;
+  margin: 10px auto;
+  text-align: center;
+  font-family: Helvetica Neue;
+  font-size: 40px;
+  font-weight: bold;
+  letter-spacing: -1px;
+}
+p {
+  margin: auto;
+  line-height: 200%;
+  text-indent: 50px;
+  font-family: "Times New Roman", serif;
+  font-size: 18px;
+}
+.centerDiv {
+  text-align: center;
+}
+.main {
+  text-align: left;
+  width: 66.667%;
+}
+pre {
+  margin: auto;
+  font-size: 16px;
+  color: darkblue;
+}
+code {
+  color: darkblue;
+  font-size: 18px;
+}
+
+.bodyDiv {
+  margin: 25px;
+}
+.jsCode {
+  width: 66.667%;
+  margin: auto;
+  background-color: white;
+}
+.pCode {
+  text-align: center;
+}
+.cardSeparator {
+  font-size: 75px;
+  color: red;
+}
+#link {
+  line-height: 200%;
+  font-family: "Times New Roman", serif;
+  font-size: 18px;
+}

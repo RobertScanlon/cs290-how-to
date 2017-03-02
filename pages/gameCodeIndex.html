@@ -3,24 +3,213 @@
 <head>
   <meta lang="en" charset="utf-8" />
   <title>Card Game Code</title>
-  <link rel="stylesheet" type="text/css" href="../css/gameStyle.css" />
+  <link rel="stylesheet" type="text/css" href="../css/gameCodeStyle.css" />
 </head>
 <body>
   <div>
     <h1>Guesing Game Code</h1>
   </div>
-  <div>
+  <div class="centerDiv">
     <p>
       If you have not yet played the game, please do so now to better
       understand the code presented on this page.
+      <a href="./gameIndex.html">Play Game</a>
     </p>
   </div>
-  <div>
+  <div class="centerDiv">
     <p>
+      The Card Guessing Game utilizes all four core API features:
+      <ol>
+        <li>
+          Creating a custom deck of cards.
+        </li>
+        <li>
+          Drawing from the deck.
+        </li>
+        <li>
+          Creating and adding to a pile.
+        </li>
+        <li>
+          Drawing from a pile.
+        </li>
+      </ol>
+    </p>
+  </div>
+  <div class.bodyDiv>
+    <h1 class="cardSeparator">&#x1f0a1;</h1>
+    <p class="main">
+      We have already seen examples of the first two actions so we
+      will focus here on adding and drawing from piles. Let's first
+      look at how we used the Deck of Cards API to populate the
+      properties of a JavaScript object used to keep track of
+      features of the game.
+    </p>
+    <p class="pCode">
+      <pre class="jsCode">
+        <code>
+          var game = {
+            face : false,
+            total : 0,
+            deckId : "",
+            pileId : "myPile",
+            currentCard : null,
+            pileSize : 0,
+            guessStr : ""
+          };
+        </code>
+      </pre>
+    </p>
+    <h1 class="cardSeparator">&#x1f0a1;</h1>
+    <p class="main">
+      <code>'face'</code> and <code>'total'</code> are both set based
+      on the initial options chosen by the user. If the user wishes to
+      include face cards, we make an API call for a standard 52-card
+      shuffled deck. However, if they do not wish to use face cards, we
+      must append our url to the following to recieve a deck with
+      only numeric cards.
+    </p>
+    <p class="pCode">
+      <pre class="jsCode">
+        <code>
+          url = "https://deckofcardsapi.com/api/deck/" +
+                "new/shuffle/?cards=" +
+                "2S,2D,2C,2H,3S,3D,3C,3H,4S,4D,4C," +
+                "4H,5S,5D,5C,5H,6S,6D,6C,6H,7S,7D," +
+                "7C,7H,8S,8D,8C,8H,9S,9D,9C,9H,10S," +
+                "10D,10C,10H";
+        </code>
+      </pre>
+    </p>
+    <h1 class="cardSeparator">&#x1f0a1;</h1>
+    <p class="main">
+      After making our call requesting a new deck containing the
+      cards we want, we then again create a new response object by
+      parsing the JSON encoded string returned by the API. We can then
+      use the following code to set our game's <code>'deckId'</code>.
+    </p>
+    <p class="pCode">
+      <pre class="jsCode">
+        <code>
+          // 'response' is our XMLHttpRequest object
+          var resObj = JSON.parse(response.responseText);
+          game.deckId = resObj.deck_id;
+        </code>
+      </pre>
+    </p>
+    <h1 class="cardSeparator">&#x1f0a1;</h1>
+    <p class="main">
+      When the user clicks the 'draw' button we request one card from
+      the deck identified by our game's <code>deckId</code>. In addition to
+      displaying the cards image, as we saw how to do earlier, we need
+      to temporarily store this cards information until it can be added
+      to the pile. To do this we store the <code>'card'</code> object
+      in the <code>currentCard</code> property of our <code>'game'</code>
+      object using the following code.
+    </p>
+    <p class="pCode">
+      <pre class="jsCode">
+        <code>
+          // 'response' is our XMLHttpRequest object
+          var resObj = JSON.parse(response.responseText);
+          game.currentCard = resObj.cards[0];
+        </code>
+      </pre>
+    </p>
+    <p class="main">
+      When the user adds the current card to the pile we must make the
+      following call contained in the function below. Notice how we update
+      <code>game.pileSize</code> and <code>game.currentCard</code> as well.
+    </p>
+    <p class="pCode">
+      <pre class="jsCode">
+        <code>
+
+// serve = base API address
+
+  function addToPile() {
+    var res = new XMLHttpRequest();
+    var url = server + "/" + game.deckId + "/pile/" +
+              game.pileId + "/add/" +
+              "?cards=" + game.currentCard.code;
+    res.open("GET", url, true);
+    res.send(null);
+    res.addEventListener("load", function(event) {
+      if (res.status >= 200 && res.status < 400) {
+        game.pileSize++;
+        game.currentCard = null;
+      } else {
+        // error state
+      }
+      event.preventDefault();
+    });
+  }
+        </code>
+      </pre>
+    </p>
+    <h1 class="cardSeparator">&#x1f0a1;</h1>
+    <p class="main">
+      Now for the fun part, we get to test the players memory. After
+      the player submits their guesses we use a JavaScript function to
+      construct a string of the codes representing the cards the user checked
+      and store it in <code>game.guessStr</code>.
+      For example, had the user checked the 'Ace of Spades', '2 of Hearts', and
+      'Jack of Clubs' our <code>guessStr</code> would equal <code>"AS,2H,JC"
+      </code>.
+    </p>
+    <p class="main">
+      To see if the user correctly guessed the contents of the pile we
+      exploit the fact that the API allows us to remove multiple cards from
+      a pile in one call. However, before making any API calls we first test
+      whether our <code>'pileSize'</code> matches the number of checked
+      boxes. If they do not, we do not need to bother checking the pile.
+      However, if the do match, we make the following API call.
+    <p>
+      <p class="pCode">
+        <pre class="jsCode">
+          <code>
+// ... other code
+// ...
+// below will only execute when pileSize = number of guesses
+// serve = base API address
+
+  var url = server + "/" + game.deckId + "/pile/" +
+            game.pileId + "/draw/?cards=" + game.guessStr;
+  var res = new XMLHttpRequest();
+  res.open("GET", url, true);
+  res.send(null);
+  res.addEventListener("load", function(event) {
+    if (res.status >= 200 && res.status < 400) {
+      // test
+      var resObj = JSON.parse(res.responseText);
+      if (resObj.piles.myPile.remaining == 0) {
+        document.getElementById("result").textContent =
+                                            "You Win!";
+      } else {
+        document.getElementById("result").textContent =
+                        "Sorry, Refresh and Try Again!";
+      }
+
+// ...
+// ... other code
+
+          </code>
+        </pre>
+      </p>
+      <p class="main">
+        As shown above, we determine if the user guessed correctly by checking
+        our pile's <code>'remaining'</code> property after making the
+        <code>'draw'</code> call. If <code>'remaining'</code> = <code>0</code>
+        then <code>game.guessStr</code> contained the codes of all the cards
+        in the pile and our player has won.
+      </p>
+    <h1 class="cardSeparator">&#x1f0a1;</h1>
+  </div>
+  <div class=centerDiv>
+    <div id="link">
       <a href="../index.html">
         Return To Homepage
       </a>
-    </p>
+    </div>
   </div>
 </body>
 </html>

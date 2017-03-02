@@ -233,7 +233,8 @@ function bindGetFreshDeck() {
       <pre class="jsCode">
 
         var request = new XMLHttpRequest();
-        var url = "https://deckofcardsapi.com/api/deck/" + deckId + "/shuffle/";
+        var url = "https://deckofcardsapi.com/api/deck/" + deckId +
+                  "/shuffle/";
         request.open("GET", url, true);
         request.send(null);
       </pre>
