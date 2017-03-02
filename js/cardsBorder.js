@@ -1,3 +1,8 @@
+// cardsBorder.js
+// Robert Scanlon
+// CS290 Winter 2017
+// How-To Project
+
 document.addEventListener("DOMContentLoaded", function() {printBorder("leftBorder");});
 document.addEventListener("DOMContentLoaded", function() {printBorder("rightBorder");});
 

@@ -1,3 +1,8 @@
+// gameScript.js
+// Robert Scanlon
+// CS290 Winter 2017
+// How-To Project
+
 var game = {
   face : false,
   total : 0,

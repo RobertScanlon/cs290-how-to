@@ -1,3 +1,8 @@
+// codeExample1.js
+// Robert Scanlon
+// CS290 Winter 2017
+// How-To Project
+
  var APIurl = "http://127.0.0.1:8000/api/deck/";
 //var APIurl = "https://deckofcardsapi.com/api/deck/";
 
