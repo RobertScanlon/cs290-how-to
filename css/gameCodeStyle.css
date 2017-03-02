@@ -63,3 +63,8 @@ code {
   font-family: "Times New Roman", serif;
   font-size: 18px;
 }
+ol {
+  width: 23%;
+  text-align: left;
+  margin: 0 auto;
+}
